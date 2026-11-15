@@ -1,0 +1,38 @@
+import { Resend } from "resend";
+
+export async function POST(request) {
+  try {
+    const body = await request.json();
+    const { name, email, category, budget, timeline, message } = body;
+
+    if (!name || !email || !message) {
+      return Response.json({ message: "Please complete your name, email and project description." }, { status: 400 });
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return Response.json({ message: "Please enter a valid email address." }, { status: 400 });
+    }
+
+    const key = process.env.RESEND_API_KEY;
+    const to = process.env.CONTACT_TO_EMAIL;
+    const from = process.env.CONTACT_FROM_EMAIL;
+    if (!key || !to || !from) {
+      return Response.json({ message: "The contact form is not connected yet. Please configure the email settings before publishing." }, { status: 503 });
+    }
+
+    const resend = new Resend(key);
+    const result = await resend.emails.send({
+      from,
+      to,
+      replyTo: email,
+      subject: `New DE_ANIMATOR inquiry — ${category || "Project"}`,
+      text: `Name: ${name}\nEmail: ${email}\nCategory: ${category || "Not specified"}\nBudget: ${budget || "Not specified"}\nTimeline: ${timeline || "Not specified"}\n\nProject details:\n${message}`
+    });
+
+    if (result.error) {
+      return Response.json({ message: "Email could not be sent right now. Please try again later." }, { status: 502 });
+    }
+    return Response.json({ message: "Thanks — your project inquiry has been sent. I’ll be in touch." });
+  } catch {
+    return Response.json({ message: "Unable to process your inquiry right now." }, { status: 500 });
+  }
+}
