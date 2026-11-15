@@ -2,6 +2,10 @@
 import { useState } from "react";
 import { ArrowUpRight, Mail, MessageCircle } from "lucide-react";
 
+const emailAddress = "kennymichael322@gmail.com";
+const whatsappNumber = "2347068239179";
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello DE_ANIMATOR, I would like to discuss an animation project.")}`;
+
 export default function Contact() {
   const [status, setStatus] = useState("");
   const [busy, setBusy] = useState(false);
@@ -36,8 +40,16 @@ export default function Contact() {
           <h1 className="section-heading">Have a project?<br /><span className="gradient-text">Let’s talk.</span></h1>
           <p className="muted mt-6 max-w-md leading-8">Share your idea, timeline and what you have in mind. I’ll get back to you to discuss the next steps.</p>
           <div className="mt-10 space-y-5">
-            <div className="flex items-center gap-4"><span className="rounded-xl border border-white/10 p-3 text-violet-300"><Mail /></span><div><p className="text-xs text-zinc-500">Email</p><p className="mt-1 text-sm">Add your business email before publishing</p></div></div>
-            <div className="flex items-center gap-4"><span className="rounded-xl border border-white/10 p-3 text-violet-300"><MessageCircle /></span><div><p className="text-xs text-zinc-500">WhatsApp</p><p className="mt-1 text-sm">Add your business WhatsApp before publishing</p></div></div>
+            <a href={`mailto:${emailAddress}`} className="flex items-center gap-4 transition hover:text-violet-200">
+              <span className="rounded-xl border border-white/10 p-3 text-violet-300"><Mail /></span>
+              <span><span className="block text-xs text-zinc-500">Email</span><span className="mt-1 block text-sm">{emailAddress}</span></span>
+              <ArrowUpRight size={15} className="ml-auto text-zinc-500" />
+            </a>
+            <a href={whatsappUrl} target="_blank" rel="noreferrer" className="flex items-center gap-4 transition hover:text-violet-200">
+              <span className="rounded-xl border border-white/10 p-3 text-violet-300"><MessageCircle /></span>
+              <span><span className="block text-xs text-zinc-500">WhatsApp</span><span className="mt-1 block text-sm">+234 706 823 9179</span></span>
+              <ArrowUpRight size={15} className="ml-auto text-zinc-500" />
+            </a>
           </div>
         </div>
         <form onSubmit={submit} className="rounded-2xl border border-white/10 bg-[#11111a] p-6 md:p-9">
