@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-const links = [["Work", "/portfolio"], ["Services", "/services"], ["About", "/about"]];
+const links = [["Work", "/portfolio"], ["Showreel", "/showreel"], ["Services", "/services"], ["About", "/about"]];
 
 export default function Header() {
   return (
