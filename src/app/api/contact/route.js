@@ -8,7 +8,7 @@ export async function POST(request) {
     if (!name || !email || !message) {
       return Response.json({ message: "Please complete your name, email and project description." }, { status: 400 });
     }
-    if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return Response.json({ message: "Please enter a valid email address." }, { status: 400 });
     }
 
@@ -26,16 +26,16 @@ export async function POST(request) {
       service: "gmail",
       auth: {
         user: gmailUser,
-        pass: gmailAppPassword.replace(/\\s/g, "")
+        pass: gmailAppPassword.replace(/\s/g, "")
       }
     });
 
     await transporter.sendMail({
-      from: `DE_ANIMATOR Website <${gmailUser}>`,
+      from: \`DE_ANIMATOR Website <\${gmailUser}>\`,
       to: recipient,
       replyTo: email,
-      subject: `New DE_ANIMATOR inquiry — ${category || "Project"}`,
-      text: `Name: ${name}\nEmail: ${email}\nCategory: ${category || "Not specified"}\nBudget: ${budget || "Not specified"}\nTimeline: ${timeline || "Not specified"}\n\nProject details:\n${message}`
+      subject: \`New DE_ANIMATOR inquiry — \${category || "Project"}\`,
+      text: \`Name: \${name}\nEmail: \${email}\nCategory: \${category || "Not specified"}\nBudget: \${budget || "Not specified"}\nTimeline: \${timeline || "Not specified"}\n\nProject details:\n\${message}\`
     });
 
     return Response.json({ message: "Thanks — your project inquiry has been sent. I’ll be in touch." });
