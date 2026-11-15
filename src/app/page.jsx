@@ -99,7 +99,6 @@ export default function Home() {
           <div className="grid gap-6 md:grid-cols-2">
             {showreels.slice(0, 2).map(video => <VideoCard key={video.id} video={video} />)}
           </div>
-          <p className="mt-5 text-xs leading-6 text-zinc-500">Videos are embedded from their original creators and are shown as curated references, not as DE_ANIMATOR productions.</p>
         </div>
       </section>
 
