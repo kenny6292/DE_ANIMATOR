@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-const emailAddress = "kennymichael322@gmail.com";
 const whatsappUrl = "https://wa.me/2347046638359";
 
 export default function Footer() {
@@ -18,7 +17,6 @@ export default function Footer() {
           <Link className="footer-link" href="/contact">Contact</Link>
         </div>
         <div className="flex flex-col gap-2 text-xs text-zinc-500">
-          <a className="footer-link" href={`mailto:${emailAddress}`}>{emailAddress}</a>
           <a className="footer-link" href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp: +234 704 663 8359</a>
           <p className="mt-2 text-zinc-600">© {new Date().getFullYear()} DE_ANIMATOR. All rights reserved.</p>
         </div>
