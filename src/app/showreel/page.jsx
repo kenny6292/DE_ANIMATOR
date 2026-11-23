@@ -14,10 +14,10 @@ export default function ShowreelPage() {
         <p className="eyebrow mb-5 flex items-center gap-2"><Clapperboard size={14} /> Curated video library</p>
         <h1 className="section-heading max-w-4xl">A closer look at<br /><span className="gradient-text">the art of motion.</span></h1>
         <p className="muted mt-6 max-w-2xl leading-8">
-          Explore selected animation reels from independent artists and studios across 2D, 3D, CGI, product visualization and motion design.
+          Explore selected animation reels across 2D, 3D, CGI, product visualization and motion design.
         </p>
         <div className="mt-8 rounded-2xl border border-violet-300/20 bg-violet-300/[.06] p-5 text-sm leading-7 text-zinc-300">
-          <strong className="text-white">Credit & attribution:</strong> These are third-party videos embedded from Vimeo for inspiration and reference. They are credited to their original creators and are not presented as DE_ANIMATOR’s own client work or original productions.
+          <strong className="text-white">Video sources:</strong> These are independently produced third-party videos embedded from Vimeo for inspiration and reference. They are not DE_ANIMATOR original productions or client projects. Use each video’s source link to view its original Vimeo page and publication details.
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {showreels.map(video => <VideoCard key={video.id} video={video} />)}
