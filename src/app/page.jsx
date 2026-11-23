@@ -8,8 +8,10 @@ import VideoCard from "@/components/VideoCard";
 const services = [
   ["3D & CGI", "Cinematic 3D visuals, CGI scenes, modelling, lighting, texturing and rendering.", Box],
   ["2D Animation", "Character-led storytelling, explainer videos, story sequences and expressive motion.", Clapperboard],
+  ["AI Animation", "AI-assisted visual concepts, animated scenes and creative short-form content.", Sparkles],
   ["Motion Design", "Brand animation, kinetic typography, animated identities and campaign visuals.", WandSparkles],
   ["Product Visualisation", "Premium product scenes, feature callouts and commercial-style animation.", Layers3],
+  ["Website Animation", "Motion-led website visuals, animated interfaces and interactive brand moments.", Workflow],
   ["Character & Worlds", "Character concepts, stylised assets and immersive visual environments.", Film],
   ["Creative Production", "From visual development and storyboarding through animation and final delivery.", Workflow]
 ];
@@ -34,15 +36,15 @@ export default function Home() {
             <h1 className="max-w-3xl text-6xl font-black leading-[.94] tracking-[-.075em] sm:text-7xl lg:text-[88px]">
               IMAGINATION,<br /><span className="gradient-text">BROUGHT TO LIFE.</span>
             </h1>
-            <p className="muted mt-8 max-w-xl text-base leading-8">From expressive 2D storytelling to cinematic 3D, CGI and product animation, DE_ANIMATOR turns ambitious ideas into visual experiences that hold attention.</p>
+            <p className="muted mt-8 max-w-xl text-base leading-8">DE_ANIMATOR creates 2D and 3D animation, CGI product visuals, AI-assisted motion content and animated website experiences that help brands present ideas with impact.</p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link href="/portfolio" className="btn btn-primary">Explore my work <ArrowUpRight size={16} /></Link>
-              <Link href="/contact" className="btn btn-outline">Start a project</Link>
+              <Link href="/portfolio" className="btn btn-primary">Explore portfolio <ArrowUpRight size={16} /></Link>
+              <Link href="/contact" className="btn btn-outline">Request a project quote</Link>
             </div>
             <div className="mt-14 grid max-w-lg grid-cols-3 gap-4 border-t border-white/10 pt-6">
               <div><p className="text-2xl font-black">2D</p><p className="mt-1 text-[10px] uppercase tracking-[.18em] text-zinc-500">Storytelling</p></div>
               <div><p className="text-2xl font-black">3D</p><p className="mt-1 text-[10px] uppercase tracking-[.18em] text-zinc-500">CGI worlds</p></div>
-              <div><p className="text-2xl font-black">∞</p><p className="mt-1 text-[10px] uppercase tracking-[.18em] text-zinc-500">Possibilities</p></div>
+              <div><p className="text-2xl font-black">AI</p><p className="mt-1 text-[10px] uppercase tracking-[.18em] text-zinc-500">Creative motion</p></div>
             </div>
             <div className="mt-12 flex items-center gap-3 text-xs tracking-wide text-zinc-500"><span className="h-px w-10 bg-violet-400" /> SCROLL TO EXPLORE <ArrowDown size={13} /></div>
           </div>
@@ -78,7 +80,7 @@ export default function Home() {
             <h2 className="section-heading max-w-2xl">A full spectrum<br />of visual craft.</h2>
             <p className="muted max-w-sm leading-7">A flexible creative approach that connects concept, design, animation and final delivery into one considered visual experience.</p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {services.map(([title, desc, Icon], index) => (
               <div className="service-card" key={title}>
                 <div className="mb-9 flex h-11 w-11 items-center justify-center rounded-xl bg-violet-400/10 text-violet-300"><Icon size={21} /></div>
@@ -93,7 +95,7 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <div className="mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end">
-            <div><p className="eyebrow mb-4">Watch & explore</p><h2 className="section-heading">Animation in<br />motion.</h2><p className="muted mt-5 max-w-xl leading-7">A curated selection of reels from talented independent artists, spanning 2D, 3D, CGI and motion design.</p></div>
+            <div><p className="eyebrow mb-4">Watch & explore</p><h2 className="section-heading">Animation in<br />motion.</h2><p className="muted mt-5 max-w-xl leading-7">A curated selection of animation references from independent artists and studios, spanning 2D, 3D, CGI and motion design.</p></div>
             <Link href="/showreel" className="btn btn-outline w-fit">View video library <ArrowUpRight size={15} /></Link>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
@@ -116,8 +118,8 @@ export default function Home() {
           <div className="rounded-[28px] border border-violet-300/20 bg-[radial-gradient(ellipse_at_top_right,#5b3b9c44,transparent_55%),#11111a] px-7 py-16 text-center md:px-16">
             <p className="eyebrow mb-5">Have an idea in mind?</p>
             <h2 className="section-heading mx-auto max-w-3xl">Let’s make something<br /><span className="gradient-text">unforgettable.</span></h2>
-            <p className="muted mx-auto mt-5 max-w-lg leading-7">Have a project, collaboration or creative challenge? Tell me what you’re imagining.</p>
-            <Link href="/contact" className="btn btn-primary mt-8">Let’s talk <ArrowUpRight size={16} /></Link>
+            <p className="muted mx-auto mt-5 max-w-lg leading-7">Share your brief and receive a project-specific scope, fixed-price quote and estimated delivery timeline.</p>
+            <Link href="/contact" className="btn btn-primary mt-8">Request a project quote <ArrowUpRight size={16} /></Link>
           </div>
         </div>
       </section>
