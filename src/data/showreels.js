@@ -78,5 +78,37 @@ export const showreels = [
     category: "3D · Character · Environments",
     description: "A 3D showcase spanning character animation, modelling, texturing, lighting and Unreal Engine rendering.",
     source: "https://vimeo.com/1070249145"
+  },
+  {
+    id: "81669140",
+    title: "Showreel — Motion Graphics, 3D & Animation",
+    creator: "Tony Murphy",
+    category: "2D · 3D · Product · VFX",
+    description: "A broad reel with product visualisation, 2D character animation, motion graphics, effects and logo animation.",
+    source: "https://vimeo.com/81669140"
+  },
+  {
+    id: "909953056",
+    title: "3D Product Animation Showreel 2024",
+    creator: "Patrice3Dvisuals",
+    category: "3D · CGI · Product commercials",
+    description: "A product-focused CGI reel featuring close-up product shots, exploded views, particles and simulation effects.",
+    source: "https://vimeo.com/909953056"
+  },
+  {
+    id: "1081105989",
+    title: "Mographity Studio Showreel 2025",
+    creator: "Sarah Peña",
+    category: "2D · 3D · AI-assisted motion",
+    description: "A personal animation collection combining 2D, 3D, motion design and experimental AI-generated imagery.",
+    source: "https://vimeo.com/1081105989"
+  },
+  {
+    id: "1162683049",
+    title: "STEP Film Showreel 2026",
+    creator: "STEP Film",
+    category: "2D · 3D · AI video · Motion design",
+    description: "A studio reel covering technical explainers, software demos, 3D product visualisation and AI-enhanced production.",
+    source: "https://vimeo.com/1162683049"
   }
 ];
