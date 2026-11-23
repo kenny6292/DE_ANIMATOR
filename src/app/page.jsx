@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight, Sparkles, Box, Clapperboard, WandSparkles, Workflow, Layers3, Film } from "lucide-react";
 import { projects } from "@/data/projects";
@@ -24,6 +27,14 @@ const process = [
 ];
 
 export default function Home() {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const heroSlides = projects.slice(0, 6);
+  useEffect(() => {
+    const timer = window.setInterval(() => setActiveSlide((current) => (current + 1) % heroSlides.length), 4500);
+    return () => window.clearInterval(timer);
+  }, [heroSlides.length]);
+  const goToSlide = (index) => setActiveSlide((index + heroSlides.length) % heroSlides.length);
+
   return (
     <main>
       <section className="relative flex min-h-[720px] items-center overflow-hidden border-b border-white/5">
@@ -49,16 +60,28 @@ export default function Home() {
             <div className="mt-12 flex items-center gap-3 text-xs tracking-wide text-zinc-500"><span className="h-px w-10 bg-violet-400" /> SCROLL TO EXPLORE <ArrowDown size={13} /></div>
           </div>
           <div className="relative mx-auto w-full max-w-[500px]">
-            <div className="glow relative aspect-[4/5] overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-[#30214f] via-[#161527] to-[#0a0a10]">
-              <div className="absolute inset-0 opacity-60" style={{ backgroundImage: "radial-gradient(circle at 50% 38%,#9b72ff66,transparent 35%),radial-gradient(circle at 70% 70%,#00c2ff33,transparent 35%)" }} />
-              <div className="hero-orbit absolute left-[15%] top-[17%] h-[67%] w-[67%] rounded-full border border-violet-200/30" />
-              <div className="hero-object absolute left-[21%] top-[23%] h-[55%] w-[55%] rotate-[-12deg] rounded-[44%_56%_55%_45%] border border-violet-200/50 bg-gradient-to-br from-violet-300/50 via-fuchsia-500/15 to-cyan-300/25 shadow-[inset_-25px_-20px_60px_#0008,0_0_90px_#9b72ff55]" />
-              <div className="absolute bottom-8 left-8 right-8 flex items-end justify-between">
-                <div><p className="eyebrow">Creative direction</p><p className="mt-2 text-2xl font-bold tracking-tight">Beyond the ordinary.</p></div>
-                <span className="rounded-full border border-white/20 p-3"><Sparkles size={16} /></span>
+            <div className="glow relative aspect-[4/5] overflow-hidden rounded-[28px] border border-white/10 bg-[#11111a]">
+              {heroSlides.map((slide, index) => (
+                <div key={slide.slug} aria-hidden={activeSlide !== index} className={"absolute inset-0 transition-all duration-1000 ease-in-out " + (activeSlide === index ? "scale-100 opacity-100" : "scale-105 opacity-0")}>
+                  <img src={slide.image} alt={slide.title} className="h-full w-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-black/20" />
+                  <div className="absolute bottom-8 left-8 right-8">
+                    <p className="eyebrow">{slide.category} · {slide.type}</p>
+                    <h2 className="mt-2 text-3xl font-bold tracking-tight">{slide.title}</h2>
+                    <p className="mt-2 max-w-sm text-sm leading-6 text-zinc-300">{slide.description}</p>
+                  </div>
+                </div>
+              ))}
+              <button type="button" onClick={() => goToSlide(activeSlide - 1)} aria-label="Previous slide" className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/30 bg-black/40 px-3 py-2 text-white backdrop-blur hover:bg-black/70">‹</button>
+              <button type="button" onClick={() => goToSlide(activeSlide + 1)} aria-label="Next slide" className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/30 bg-black/40 px-3 py-2 text-white backdrop-blur hover:bg-black/70">›</button>
+              <div className="absolute right-7 top-7 z-10 flex gap-2" aria-label="Choose hero slide">
+                {heroSlides.map((slide, index) => (
+                  <button key={slide.slug} type="button" onClick={() => goToSlide(index)} aria-label={"Show slide " + (index + 1) + ": " + slide.title} aria-current={activeSlide === index ? "true" : undefined} className={"h-2 rounded-full transition-all " + (activeSlide === index ? "w-7 bg-white" : "w-2 bg-white/50 hover:bg-white")} />
+                ))}
               </div>
+              <div className="absolute bottom-3 right-7 z-10 text-[10px] tracking-[.2em] text-white/70">{String(activeSlide + 1).padStart(2, "0")} / {String(heroSlides.length).padStart(2, "0")}</div>
             </div>
-            <p className="mt-4 text-center text-[10px] uppercase tracking-[.25em] text-zinc-600">A digital canvas for imagination</p>
+            <p className="mt-4 text-center text-[10px] uppercase tracking-[.25em] text-zinc-600">Selected animation & visual concepts</p>
           </div>
         </div>
       </section>
