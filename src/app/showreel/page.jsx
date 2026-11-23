@@ -4,21 +4,18 @@ import VideoCard from "@/components/VideoCard";
 
 export const metadata = {
   title: "Animation Reels | DE_ANIMATOR",
-  description: "A curated collection of animation, CGI, 3D, 2D and motion-design showreels from independent artists."
+  description: "Explore animation, CGI, 3D, 2D, product visualization and motion-design reels."
 };
 
 export default function ShowreelPage() {
   return (
     <main className="section min-h-screen">
       <div className="container">
-        <p className="eyebrow mb-5 flex items-center gap-2"><Clapperboard size={14} /> Curated video library</p>
+        <p className="eyebrow mb-5 flex items-center gap-2"><Clapperboard size={14} /> Animation showcase</p>
         <h1 className="section-heading max-w-4xl">A closer look at<br /><span className="gradient-text">the art of motion.</span></h1>
         <p className="muted mt-6 max-w-2xl leading-8">
-          Explore selected animation reels across 2D, 3D, CGI, product visualization and motion design.
+          Explore animation across 2D, 3D, CGI, product visualization and motion design.
         </p>
-        <div className="mt-8 rounded-2xl border border-violet-300/20 bg-violet-300/[.06] p-5 text-sm leading-7 text-zinc-300">
-          <strong className="text-white">Video sources:</strong> These are independently produced third-party videos embedded from Vimeo for inspiration and reference. They are not DE_ANIMATOR original productions or client projects. Use each video’s source link to view its original Vimeo page and publication details.
-        </div>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {showreels.map(video => <VideoCard key={video.id} video={video} />)}
         </div>
