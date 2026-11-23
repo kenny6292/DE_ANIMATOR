@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ArrowUpRight, Mail, MessageCircle } from "lucide-react";
 
 const emailAddress = "kennymichael322@gmail.com";
-const whatsappNumber = "2347068239179";
+const whatsappNumber = "2347046638359";
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello DE_ANIMATOR, I would like to discuss an animation project.")}`;
 
 export default function Contact() {
@@ -47,7 +47,7 @@ export default function Contact() {
             </a>
             <a href={whatsappUrl} target="_blank" rel="noreferrer" className="flex items-center gap-4 transition hover:text-violet-200">
               <span className="rounded-xl border border-white/10 p-3 text-violet-300"><MessageCircle /></span>
-              <span><span className="block text-xs text-zinc-500">WhatsApp</span><span className="mt-1 block text-sm">+234 706 823 9179</span></span>
+              <span><span className="block text-xs text-zinc-500">WhatsApp</span><span className="mt-1 block text-sm">+234 704 663 8359</span></span>
               <ArrowUpRight size={15} className="ml-auto text-zinc-500" />
             </a>
           </div>
