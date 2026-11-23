@@ -6,7 +6,7 @@ export default function VideoCard({ video }) {
       <div className="video-frame">
         <iframe
           src={`https://player.vimeo.com/video/${video.id}?title=0&byline=0&portrait=0`}
-          title={`${video.title} by ${video.creator}`}
+          title={video.title}
           loading="lazy"
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
@@ -16,11 +16,10 @@ export default function VideoCard({ video }) {
         <div className="flex flex-wrap items-center justify-between gap-2">
           <span className="eyebrow !text-[9px]">{video.category}</span>
           <a className="video-source" href={video.source} target="_blank" rel="noreferrer">
-            View source <ArrowUpRight size={13} />
+            View original source <ArrowUpRight size={13} />
           </a>
         </div>
         <h3 className="mt-3 text-lg font-bold tracking-tight">{video.title}</h3>
-        <p className="mt-1 text-xs text-violet-200/80">Created by {video.creator}</p>
         <p className="muted mt-3 text-sm leading-6">{video.description}</p>
       </div>
     </article>
