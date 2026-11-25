@@ -16,9 +16,6 @@ export default function VideoCard({ video }) {
           alt=""
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
-          onError={(event) => {
-            event.currentTarget.style.display = "none";
-          }}
         />
         <span className="absolute inset-0 flex items-center justify-center bg-black/20 transition group-hover:bg-black/10">
           <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/60 bg-black/55 text-2xl text-white shadow-xl backdrop-blur transition group-hover:scale-110">
